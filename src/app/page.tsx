@@ -1,36 +1,26 @@
 import Link from "next/link";
 
+const mockUrls = [
+  "https://utfs.io/f/db7d4eb1-6c59-46d8-ac6f-483889a3b90f-c1zroy.png",
+  "https://utfs.io/f/756ab025-7078-41ab-beb4-c6c53ba8c815-oduwqt.png",
+  "https://utfs.io/f/1e9beceb-8c2f-49a5-b3c5-449658ee6eb8-oduwqu.png",
+  "https://utfs.io/f/d224040e-328e-48a0-a33c-8f7dca0ff487-yfyevc.jpg",
+];
+
+const mockImages = mockUrls.map((url, i) => ({
+  id: i + 1,
+  url,
+}));
+
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
-        </div>
+    <main className="">
+      <div className="flex flex-wrap gap-x-4">
+        {[...mockImages, ...mockImages, ...mockImages].map((image) => (
+          <div key={image.id} className="w-48">
+            <img src={image.url} alt="image" />
+          </div>
+        ))}
       </div>
     </main>
   );
